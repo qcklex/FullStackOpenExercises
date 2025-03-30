@@ -41,3 +41,25 @@
   color: #888;
 }
 
+.anecdotes{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem;
+  padding: 2rem;
+  font-weight: 100;
+  font-size: 2rem;
+  font-family: sans-serif
+}
+
+.votes {
+  font-family: monospace;
+  color: orangered;
+}
+
+.max-votes {
+  font-family: monospace;
+  color: green
+}
