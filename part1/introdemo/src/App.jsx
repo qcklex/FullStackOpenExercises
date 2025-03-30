@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import React from 'react'
-import Statistics from './components/Statistics'
+import Statistics from '../../unicafe/components/Statistics'
 
 const Button = (props) => {
 

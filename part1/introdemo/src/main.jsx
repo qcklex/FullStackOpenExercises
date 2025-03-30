@@ -1,7 +1,7 @@
 import { createRoot } from 'react-dom/client'
 import React from 'react'
 import App from './App'
-import Statistics from './components/Statistics'
+import Statistics from '../../unicafe/components/Statistics'
 
 
 const root = createRoot(document.getElementById("root"))
