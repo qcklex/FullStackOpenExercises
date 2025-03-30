@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-export default function Statistics (props){
+ const Statistics = (props) => {
   const all = (props.good + props.neutral + props.bad)
   const average = all / 3
   const positive = (props.good / all) * 100
@@ -23,3 +23,5 @@ export default function Statistics (props){
   )
 
 }
+
+export default Statistics
