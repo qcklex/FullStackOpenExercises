@@ -9,12 +9,15 @@ export default function Statistics (props){
   return (
     <div>
      <h1>statistics</h1>
+     {all > 0 ?
+     <div>
       <div>good {props.good}</div>
       <div>neutral {props.neutral}</div>
       <div>bad {props.bad}</div>
       <div>all {all}</div>
       <div>average {average}</div>
       <div>positive {positive}</div>
+      </div> : <div> No feedback given</div>}
     </div>
       
   )
