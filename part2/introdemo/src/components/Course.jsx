@@ -10,15 +10,14 @@ const Header = ({course}) => {
 }
 
 const Content = ({course}) => {
-    
+
 const arr = course.parts.map(part => (part.exercises))
 
-const initialValue = 0;
+const someMagicHere = 0;
 
-const totalExercisesNumber = arr.reduce(
-  (accumulator, currentValue) => accumulator + currentValue,
-  initialValue,)
+const totalExercisesNumber = arr.reduce((p, t) => p + t)
 
+console.log(totalExercisesNumber)
 const content = course.parts.map(part => <div key={part.id}>{part.name} {part.exercises}</div>)
 
 return (
