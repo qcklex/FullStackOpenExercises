@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-
+import { useState } from 'react'
   
+
 const Header = ({course}) => {
     return (
         <h2>{course.name}</h2>
@@ -9,16 +10,33 @@ const Header = ({course}) => {
 }
 
 const Content = ({course}) => {
+    
+const arr = course.parts.map(part => (part.exercises))
+
+const initialValue = 0;
+
+const totalExercisesNumber = arr.reduce(
+  (accumulator, currentValue) => accumulator + currentValue,
+  initialValue,)
 
 const content = course.parts.map(part => <div key={part.id}>{part.name} {part.exercises}</div>)
 
-    return (
+return (
+        <>
         <div>{content}</div>
+        { <div> 
+            <strong>
+                total of {totalExercisesNumber} exercises 
+            </strong> 
+        </div>}
+        </>
     )
 }
 
 const Course = ({course}) => {
-  
+
+   
+    
     return (
         <>
             <Header course={course}/>
