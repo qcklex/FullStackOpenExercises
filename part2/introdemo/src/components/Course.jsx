@@ -3,22 +3,21 @@ import ReactDOM from 'react-dom'
 import { useState } from 'react'
   
 
-const Header = ({course}) => {
+const Header = ({courses}) => {
     return (
-        <h2>{course.name}</h2>
+        <h2>{courses.name}</h2>
     )
 }
 
-const Content = ({course}) => {
+const Content = ({courses}) => {
 
-const arr = course.parts.map(part => (part.exercises))
-
+const arrcourses1 = courses.parts.map(part => (part.exercises))
 const someMagicHere = 0;
-
-const totalExercisesNumber = arr.reduce((p, t) => p + t)
-
+const totalExercisesNumber = arrcourses1.reduce((p, t) => p + t)
 console.log(totalExercisesNumber)
-const content = course.parts.map(part => <div key={part.id}>{part.name} {part.exercises}</div>)
+
+
+const content = courses.parts.map(part => <div key={part.id}>{part.name} {part.exercises}</div>)
 
 return (
         <>
@@ -32,17 +31,16 @@ return (
     )
 }
 
-const Course = ({course}) => {
-
-   
-    
+const courses = ({courses}) => {
     return (
         <>
-            <Header course={course}/>
-            <Content course={course}/>
+            <Header courses={courses[0]}/>
+            <Content courses={courses[0]}/>
+            <Header courses={courses[1]}/>
+            <Content courses={courses[1]}/>
         </>
     )
 }
 
 
-export default Course 
+export default courses 
