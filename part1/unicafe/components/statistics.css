@@ -1,0 +1,14 @@
+
+.statistics {
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  margin: 2em 0;
+  gap: 1.5em;
+  font-weight: 700;
+}
+
+.value {
+  font-weight: 100;
+}
+
