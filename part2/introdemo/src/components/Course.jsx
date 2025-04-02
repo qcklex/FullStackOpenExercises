@@ -31,7 +31,7 @@ return (
     )
 }
 
-const courses = ({courses}) => {
+const Course = ({courses}) => {
     return (
         <>
             <Header courses={courses[0]}/>
@@ -43,4 +43,4 @@ const courses = ({courses}) => {
 }
 
 
-export default courses 
+export default Course
