@@ -18,12 +18,11 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
-      <Filter />
+      <Filter filter={filter} setFilter={setFilter}/>
       <h2>add a new</h2>
-        <PersonForm />
+        <PersonForm newName={newName} newNumber={newNumber} persons={persons}/>
       <h2>Numbers</h2>
-      <Persons />
-   
+      <Persons filter={filter} persons={persons}/>
     </div>
   )
 }
