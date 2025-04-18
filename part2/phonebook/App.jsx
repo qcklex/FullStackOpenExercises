@@ -4,6 +4,7 @@ import Filter from './components/Filter'
 import PersonForm from './components/PersonForm'
 import axios from 'axios'
 
+// to do: exercises 2.12-2.15 // 2.16-2.17 // 2.18-2.20 //
 
 const App = () => {
   const [persons, setPersons] = useState([])
