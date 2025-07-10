@@ -1,5 +1,7 @@
-const PersonForm = ({newName, newNumber, persons}) => {
-   
+import axios from 'axios'
+import personService from '../services/persons'
+import {useEffect} from 'react'
+const PersonForm = ({newName, setNewName, newNumber, setNewNumber, persons, setPersons}) => {
 
     const handleNameChange = (e) => {
         console.log(e.target.value)
@@ -16,24 +18,29 @@ const PersonForm = ({newName, newNumber, persons}) => {
          alert(newName + " is already added to phonebook")
          
         }
-   
         else if (persons.some(person => person.number === newNumber)){
          alert(newNumber + " is already added to phonebook")
         }
-   
         else{
          const personObject = {
            id: String(persons.length + 1),
            name: newName,
            number: newNumber
            }  
-           setPersons(persons.concat(personObject))
-           setNewName('')
-           setNewNumber('')
+           
+           personService
+            .create(personObject)
+            .then(response => {
+                setPersons(persons.concat(response.data))
+                setNewName('')
+                setNewNumber('')
+          })
+      
         }
+        
        }
     
-       // done! 
+       
     return(
     <form>
         <div>
