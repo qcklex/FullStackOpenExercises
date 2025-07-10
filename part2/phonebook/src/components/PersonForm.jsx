@@ -3,7 +3,7 @@ import personService from '../services/persons'
 import {useEffect} from 'react'
 const PersonForm = ({newName, setNewName, newNumber, setNewNumber, persons, setPersons}) => {
 
-    const handleNameChange = (e) => {
+      const handleNameChange = (e) => {
         console.log(e.target.value)
         setNewName(e.target.value)
       }
@@ -14,33 +14,42 @@ const PersonForm = ({newName, setNewName, newNumber, setNewNumber, persons, setP
 
       const addContact = (event) => {
         event.preventDefault()
-        if (persons.some(person => person.name === newName) | persons.some(person => person.number === newNumber)){
-         alert(newName + " is already added to phonebook")
-         
+        const existingPerson = persons.find(person => person.name === newName)
+        if (existingPerson) {
+          if(window.confirm(`${newName} is already added to phonebook, replace the old number with a new one?`)) {
+            const updatedPerson = {...existingPerson, number:newNumber}
+            personService
+              .update(existingPerson.id, updatedPerson)
+              .then(returnedPerson => { 
+                setPersons(persons.map(person => 
+                  person.id !== existingPerson.id ? person : returnedPerson
+                ))
+                setNewName('')
+                setNewNumber('')
+              })
         }
         else if (persons.some(person => person.number === newNumber)){
          alert(newNumber + " is already added to phonebook")
         }
-        else{
+        
+        else {
          const personObject = {
            id: String(persons.length + 1),
            name: newName,
            number: newNumber
            }  
-           
            personService
-            .create(personObject)
+            .create(personObject)``
             .then(response => {
                 setPersons(persons.concat(response.data))
                 setNewName('')
                 setNewNumber('')
           })
-      
         }
-        
        }
-    
+      }
        
+
     return(
     <form>
         <div>
