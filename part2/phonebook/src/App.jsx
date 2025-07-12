@@ -19,6 +19,7 @@ const App = () => {
       })
   }, [])
 
+
   return (
     <div>
       <h2>Phonebook</h2>
@@ -33,7 +34,7 @@ const App = () => {
         setPersons={setPersons}
         />
       <h2>Numbers</h2>
-      <Persons filter={filter} persons={persons}/>
+      <Persons filter={filter} persons={persons} setPersons={setPersons}/>
     </div>
   )
 }
