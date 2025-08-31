@@ -20,6 +20,15 @@ const App = () => {
         setPersons(initialPersons)
       })
 
+      const interval = setInterval(() => {
+      personService
+      .getAll()
+      .then(updatedPersons => {
+        setPersons(updatedPersons)
+      })
+      }, 5000) // fetch every 5 seconds
+
+  return () => clearInterval(interval)
       
   }, [])
 
