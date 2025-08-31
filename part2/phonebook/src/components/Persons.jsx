@@ -2,7 +2,8 @@ import axios from "axios";
 const Persons = ({filter, persons, setPersons}) => {
 
 
-  const personsToShow = filter
+  const personsToShow = 
+  filter
   ? persons.filter(person => person.name.toLowerCase().includes(filter.toLowerCase()))
   : persons
 
@@ -13,11 +14,12 @@ const Persons = ({filter, persons, setPersons}) => {
       .then(() => {
         setPersons(persons.filter(person => person.id !== id))
       })
-      }
+    }
 }
+console.log(persons)
 
 return (
-    
+  
     <ul>
       {personsToShow.map(person => 
         <li key={person.id}>
